@@ -1,22 +1,12 @@
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import javax.swing.*;
 
 public class Main {
-    public static void main(String [] args) throws Exception {
-        testConnection();
-    }
+    public static void main(String[] args) throws Exception {
+        JFrame frame = new JFrame("VillageRuin");
+        frame.setContentPane(new LoginPage().MainPanel);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.pack();
+        frame.setVisible(true);
 
-    public static void testConnection() throws SQLException {
-        Connection con = Database.getConnection();
-        Statement st = con.createStatement();
-        ResultSet rs = st.executeQuery("select id, nume from studenti");
-        while(rs.next()){
-            System.out.println(rs.getInt("ID") + " " + rs.getString("NUME"));
-        }
-        rs.close();
-        st.close();
-        Database.closeConnection();
     }
 }

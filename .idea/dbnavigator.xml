@@ -25,7 +25,8 @@
     <show-object-properties value="true" />
     <loaded-nodes>
       <connection connection-id="05348850-bacc-451a-be6d-84efa86f35d4">
-        <schema name="STUDENT" object-types="index, procedure, column, dimension, type, table, synonym, cluster, package, view, dataset trigger, dblink, function, sequence, database trigger, materialized view, nested table, constraint" />
+        <schema name="PUBLIC" object-types="materialized view, type, synonym, table, sequence, function, view, procedure, package" />
+        <schema name="STUDENT" object-types="materialized view, dblink, type, synonym, table, sequence, function, view, package procedure, dimension, cluster, package function, database trigger, procedure, column, package, package type" />
       </connection>
     </loaded-nodes>
   </component>
@@ -41,7 +42,9 @@
     <connection id="05348850-bacc-451a-be6d-84efa86f35d4" />
   </component>
   <component name="DBNavigator.Project.EditorStateManager">
-    <last-used-providers />
+    <last-used-providers>
+      <object-type object-type="PACKAGE" editor-provider="CODE_BODY" />
+    </last-used-providers>
   </component>
   <component name="DBNavigator.Project.MethodExecutionManager">
     <method-browser />
