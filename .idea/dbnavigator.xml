@@ -2,7 +2,7 @@
 <project version="4">
   <component name="DBNavigator.Project.DataEditorManager">
     <record-view-column-sorting-type value="BY_INDEX" />
-    <value-preview-text-wrapping value="true" />
+    <value-preview-text-wrapping value="false" />
     <value-preview-pinned value="false" />
   </component>
   <component name="DBNavigator.Project.DataExportManager">
@@ -25,7 +25,7 @@
     <show-object-properties value="true" />
     <loaded-nodes>
       <connection connection-id="05348850-bacc-451a-be6d-84efa86f35d4">
-        <schema name="STUDENT" object-types="procedure, dimension, type, table, synonym, cluster, package, view, dblink, function, sequence, database trigger, materialized view" />
+        <schema name="STUDENT" object-types="index, procedure, column, dimension, type, table, synonym, cluster, package, view, dataset trigger, dblink, function, sequence, database trigger, materialized view, nested table, constraint" />
       </connection>
     </loaded-nodes>
   </component>
