@@ -11,13 +11,22 @@ public class LoginPage {
     private JLabel passwordLabel;
     private JButton registerButton;
 
-    public LoginPage() {
+    public LoginPage(JFrame frame) {
         loginButton.addActionListener(e -> {
             if(DatabaseCalls.accountDoesExist(usernameField.getText(), passwordField.getText())){
                 JOptionPane.showMessageDialog(null, "Successfully logged in");
+                frame.setContentPane(new MapPage(frame).MainPanel);
+                frame.pack();
             }
             else
                 JOptionPane.showMessageDialog(null, "Account does not exist or something else went wrong");
+        });
+        registerButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.setContentPane(new RegisterPage(frame).MainPanel);
+                frame.pack();
+            }
         });
     }
 

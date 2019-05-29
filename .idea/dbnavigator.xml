@@ -22,11 +22,11 @@
   <component name="DBNavigator.Project.DatabaseBrowserManager">
     <autoscroll-to-editor value="false" />
     <autoscroll-from-editor value="true" />
-    <show-object-properties value="true" />
+    <show-object-properties value="false" />
     <loaded-nodes>
       <connection connection-id="05348850-bacc-451a-be6d-84efa86f35d4">
-        <schema name="PUBLIC" object-types="materialized view, type, synonym, table, sequence, function, view, procedure, package" />
-        <schema name="STUDENT" object-types="materialized view, dblink, type, synonym, table, sequence, function, view, package procedure, dimension, cluster, package function, database trigger, procedure, column, package, package type" />
+        <schema name="PUBLIC" object-types="procedure, sequence, package, table, materialized view, view, function, type, synonym" />
+        <schema name="STUDENT" object-types="procedure, sequence, dimension, package, dataset trigger, nested table, constraint, column, dblink, table, package function, materialized view, view, function, package procedure, database trigger, package type, type, cluster, synonym" />
       </connection>
     </loaded-nodes>
   </component>
