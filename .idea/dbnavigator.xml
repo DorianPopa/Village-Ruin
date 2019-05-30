@@ -25,8 +25,9 @@
     <show-object-properties value="false" />
     <loaded-nodes>
       <connection connection-id="05348850-bacc-451a-be6d-84efa86f35d4">
-        <schema name="PUBLIC" object-types="table, procedure, view, synonym, type, package, sequence, function, materialized view" />
-        <schema name="STUDENT" object-types="table, cluster, procedure, view, synonym, column, package procedure, dimension, type, constraint, package, dataset trigger, sequence, package function, function, database trigger, package type, nested table, materialized view, index, dblink" />
+        <schema name="PUBLIC" object-types="synonym, view, procedure, table, type, package, sequence, materialized view, function" />
+        <schema name="STUDENT" object-types="synonym, view, procedure, table, nested table, database trigger, dimension, package type, type, cluster, constraint, package, package procedure, sequence, index, package function, column, argument, dataset trigger, type function, dblink, materialized view, function" />
+        <schema name="SYS" object-types="synonym, package type, package" />
       </connection>
     </loaded-nodes>
   </component>
