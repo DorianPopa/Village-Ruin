@@ -1,4 +1,9 @@
+import oracle.jdbc.OracleTypes;
+import oracle.jdbc.oracore.OracleType;
+
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 // INFORMATION FOR DUMMY CALLS
 // account_name: GG
@@ -68,6 +73,25 @@ public class DatabaseCalls {
             System.out.println("SQL Exception");
         }
         return true;
+    }
+
+    public static void getVillagesByAccountId(int accountId){
+        try{
+            Connection con = Database.getConnection();
+            CallableStatement callableStatement = con.prepareCall("BEGIN gameFunctions.getVillagesByAccountIdCursor( ?, ?); END;");
+
+            callableStatement.registerOutParameter(2, OracleTypes.CURSOR);
+            callableStatement.setInt(1, accountId);
+            callableStatement.execute();
+
+            ResultSet rs = (ResultSet)callableStatement.getObject(2);
+            while(rs.next()){
+                System.out.println(rs.getInt(1));
+            }
+        }
+        catch (SQLException e){
+            System.out.println("SQL Exception");
+        }
     }
 }
 

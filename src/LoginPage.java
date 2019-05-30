@@ -21,12 +21,9 @@ public class LoginPage {
             else
                 JOptionPane.showMessageDialog(null, "Account does not exist or something else went wrong");
         });
-        registerButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                frame.setContentPane(new RegisterPage(frame).MainPanel);
-                frame.pack();
-            }
+        registerButton.addActionListener(e -> {
+            frame.setContentPane(new RegisterPage(frame).MainPanel);
+            frame.pack();
         });
     }
 
