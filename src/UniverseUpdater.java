@@ -13,16 +13,22 @@ public class UniverseUpdater {
                 int i = 0;
                 ResultSet rs = DatabaseCalls.getAllVillages(1);
                 while(true){
-                    System.out.println(i);
+                    //System.out.println(i);
                     try {
                         if (!rs.next()) break;
                         Village v = new Village(rs);
-                        villageList.get(i).setHealth(v.getHealth());
-                        villageList.get(i).setIdAccount(v.getIdAccount());
-                        villageList.get(i).setVillageName(v.getVillageName());
-                        villageList.get(i).setResources(v.getResources());
-                        villageList.get(i).setVillagelevel(v.getVillagelevel());
-                        villageList.get(i).setTroopNumber(v.getTroopNumber());
+                        if(villageList.get(i).getHealth() != v.getHealth())
+                            villageList.get(i).setHealth(v.getHealth());
+                        if(villageList.get(i).getIdAccount() != v.getIdAccount())
+                            villageList.get(i).setIdAccount(v.getIdAccount());
+                        if(villageList.get(i).getVillageName() != v.getVillageName())
+                            villageList.get(i).setVillageName(v.getVillageName());
+                        if(villageList.get(i).getResources() != v.getResources())
+                            villageList.get(i).setResources(v.getResources());
+                        if(villageList.get(i).getVillagelevel() != v.getVillagelevel())
+                            villageList.get(i).setVillagelevel(v.getVillagelevel());
+                        if(villageList.get(i).getTroopNumber() != v.getTroopNumber())
+                            villageList.get(i).setTroopNumber(v.getTroopNumber());
                         i++;
                     } catch (SQLException e) {
                         e.printStackTrace();

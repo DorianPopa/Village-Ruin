@@ -2,9 +2,6 @@ import oracle.jdbc.OracleTypes;
 
 import java.sql.*;
 
-// INFORMATION FOR DUMMY CALLS
-// account_name: GG
-// account_password: Becali
 
 public class DatabaseCalls {
     public static void testConnection() throws SQLException {
@@ -111,6 +108,25 @@ public class DatabaseCalls {
         catch (SQLException e){
             System.out.println("SQL Exception");
             return null;
+        }
+    }
+
+    public static int getAccountIdByName(String name){
+        try{
+            Connection con = Database.getConnection();
+            CallableStatement callableStatement = con.prepareCall("BEGIN ?:= gameFunctions.getAccountIdByName( ?); END;");
+
+            callableStatement.registerOutParameter(1, java.sql.Types.INTEGER);
+            callableStatement.setString(2, name);
+            callableStatement.execute();
+
+            int result = callableStatement.getInt(1);
+
+            return result;
+        }
+        catch (SQLException e){
+            System.out.println("SQL Exception");
+            return 0;
         }
     }
 }

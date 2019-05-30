@@ -19,8 +19,9 @@ public class MapPage {
     private ArrayList villageList = new ArrayList<Village>();
 
     private File unprocessedImage;
-    private BufferedImage villageSprite;
+    private BufferedImage villageNoOwner;
     private BufferedImage blankSprite;
+    private BufferedImage villageWithOwner;
 
     UniverseUpdater updater;
 
@@ -47,11 +48,15 @@ public class MapPage {
 
     private void initImages(){
         try {
-            unprocessedImage = new File("resources/village.png");
-            villageSprite = ImageIO.read(unprocessedImage);
+            unprocessedImage = new File("resources/villageNoOwner.png");
+            villageNoOwner = ImageIO.read(unprocessedImage);
 
             unprocessedImage = new File("resources/grass.png");
             blankSprite = ImageIO.read(unprocessedImage);
+
+            unprocessedImage = new File("resources/village.png");
+            villageWithOwner = ImageIO.read(unprocessedImage);
+
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -90,8 +95,17 @@ public class MapPage {
             Village village = new Village(villagesCursor);
             village.setMargin(new Insets(0, 0, 0, 0));
             village.setBorder(null);
-            village.setIcon(new ImageIcon(villageSprite));
-            village.setBackground(Color.MAGENTA);
+
+            if(village.getIdAccount() == 0)
+                village.setIcon(new ImageIcon(villageNoOwner));
+            else{
+                village.setIcon(new ImageIcon(villageWithOwner));
+                if(village.getIdAccount() == SessionData.accountId)
+                    village.setBackground(Color.BLUE);
+                else
+                    village.setBackground(Color.MAGENTA);
+            }
+
             villageList.add(village);
                 return village;
         } catch (SQLException e) {
