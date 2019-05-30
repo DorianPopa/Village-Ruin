@@ -3,11 +3,12 @@ import java.awt.*;
 
 public class Main {
     public static void main(String[] args) throws Exception {
-        test();
+        //test();
         mainChestie();
     }
     public static void test(){
-        DatabaseCalls.getVillagesByAccountId(75);
+        //DatabaseCalls.getVillagesByAccountId(75);
+        System.out.println(PasswordEncryption.hashPassword("LuL", "salty").get());
     }
 
     public static void mainChestie(){

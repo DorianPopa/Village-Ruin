@@ -1,6 +1,4 @@
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class LoginPage {
     public JButton loginButton;
@@ -11,15 +9,17 @@ public class LoginPage {
     private JLabel passwordLabel;
     private JButton registerButton;
 
+
     public LoginPage(JFrame frame) {
         loginButton.addActionListener(e -> {
-            if(DatabaseCalls.accountDoesExist(usernameField.getText(), passwordField.getText())){
-                JOptionPane.showMessageDialog(null, "Successfully logged in");
-                frame.setContentPane(new MapPage(frame).MainPanel);
-                frame.pack();
+            if (passwordField.getText() != null && usernameField.getText() != null) {
+                if (DatabaseCalls.accountDoesExist(usernameField.getText(), PasswordEncryption.hashPassword(passwordField.getText(), "SALTY").get())) {
+                    JOptionPane.showMessageDialog(null, "Successfully logged in");
+                    frame.setContentPane(new MapPage(frame).MainPanel);
+                    frame.pack();
+                } else
+                    JOptionPane.showMessageDialog(null, "Account does not exist or something else went wrong");
             }
-            else
-                JOptionPane.showMessageDialog(null, "Account does not exist or something else went wrong");
         });
         registerButton.addActionListener(e -> {
             frame.setContentPane(new RegisterPage(frame).MainPanel);

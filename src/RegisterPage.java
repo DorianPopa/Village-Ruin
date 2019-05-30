@@ -39,7 +39,7 @@ public class RegisterPage {
             canRegister = false;
         }
         if(canRegister){
-            DatabaseCalls.registerUSER(usernameField.getText(), passwordField.getText());
+            DatabaseCalls.registerUSER(usernameField.getText(), PasswordEncryption.hashPassword(passwordField.getText(), "SALTY").get());
             JOptionPane.showMessageDialog(null, "Account registered. You can now login.");
         }
     }
