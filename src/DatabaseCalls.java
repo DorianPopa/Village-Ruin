@@ -129,6 +129,32 @@ public class DatabaseCalls {
             return 0;
         }
     }
+
+    public static void recruitTroopAtVillageById(int villageId){
+        try{
+            Connection con = Database.getConnection();
+            CallableStatement callableStatement = con.prepareCall("BEGIN gameFunctions.recruitTroopAtVillageById( ?); END;");
+
+            callableStatement.setInt(1, villageId);
+            callableStatement.execute();
+        }
+        catch (SQLException e){
+            System.out.println("SQL Exception");
+        }
+    }
+
+    public static void increaseVillageLevelById(int villageId){
+        try{
+            Connection con = Database.getConnection();
+            CallableStatement callableStatement = con.prepareCall("BEGIN gameFunctions.increaseVillageLevelById( ?); END;");
+
+            callableStatement.setInt(1, villageId);
+            callableStatement.execute();
+        }
+        catch (SQLException e){
+            System.out.println("SQL Exception");
+        }
+    }
 }
 
 

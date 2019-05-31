@@ -4,6 +4,8 @@ create or replace PACKAGE gameFunctions IS
     PROCEDURE getVillagesByAccountIdCursor(p_accountId IN villages.id_account%TYPE, returnCursor OUT SYS_REFCURSOR);
     PROCEDURE getAllVillages(p_gameId IN games.id%TYPE , returnCursor OUT SYS_REFCURSOR);
     FUNCTION  getAccountIdByName(p_accountName accounts.account_name%TYPE) RETURN INTEGER;
+    PROCEDURE recruitTroopAtVillageById(p_villageId villages.id%TYPE);
+    PROCEDURE increaseVillageLevelById(p_villageId villages.id%TYPE);
 END gameFunctions;
 /
 
@@ -61,6 +63,29 @@ CREATE OR REPLACE PACKAGE BODY gameFunctions IS
         RETURN returnId;
     END;
     
+    PROCEDURE recruitTroopAtVillageById(p_villageId villages.id%TYPE) AS
+        targetVillage villages%ROWTYPE;
+        TROOP_COST INTEGER := 5;
+    BEGIN
+        SELECT * INTO targetVillage FROM villages WHERE id = p_villageId;
+        IF(targetVillage.resources >= TROOP_COST) THEN
+            UPDATE villages SET resources = resources - TROOP_COST, troop_number = troop_number + 1 WHERE id = p_villageId;
+        END IF;
+        
+    END recruitTroopAtVillageById;
+    
+    PROCEDURE increaseVillageLevelById(p_villageId villages.id%TYPE) AS
+        targetVillage villages%ROWTYPE;
+        LEVEL_COST_INCREASE INTEGER := 2;
+        totalLevelUpCost INTEGER;
+    BEGIN
+        SELECT * INTO targetVillage FROM villages WHERE id = p_villageId;
+        totalLevelUpCost := targetVillage.village_level * LEVEL_COST_INCREASE;
+        IF(targetVillage.resources >= totalLevelUpCost) THEN
+            UPDATE villages SET resources = resources - totalLevelUpCost, village_level = village_level + 1 WHERE id = p_villageId;
+        END IF;
+        
+    END increaseVillageLevelById;
     
 END gameFunctions;
 

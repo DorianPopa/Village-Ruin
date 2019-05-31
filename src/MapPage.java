@@ -24,6 +24,9 @@ public class MapPage {
     private BufferedImage villageWithOwner;
 
     UniverseUpdater updater;
+    public static SidePanel sidePanel = new SidePanel();
+
+    public static Village selectedVillage;
 
     public MapPage(JFrame frame){
         villagesCursor = DatabaseCalls.getAllVillages(1);
@@ -34,6 +37,7 @@ public class MapPage {
 
         GridLayout mapLayout = new GridLayout(mapSize,mapSize);
         mapPanel.setLayout(mapLayout);
+
         initImages();
 
         try {
@@ -42,8 +46,13 @@ public class MapPage {
             e.printStackTrace();
         }
 
-        MainPanel.add(mapPanel, BorderLayout.SOUTH);
+        MainPanel.add(mapPanel, BorderLayout.CENTER);
         updater = new UniverseUpdater(villageList);
+
+
+        MainPanel.add(sidePanel.sidePanel, BorderLayout.EAST);
+
+
     }
 
     private void initImages(){

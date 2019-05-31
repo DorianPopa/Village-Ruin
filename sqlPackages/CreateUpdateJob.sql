@@ -1,7 +1,6 @@
 set serveroutput on;
 
 BEGIN
-
     DBMS_SCHEDULER.CREATE_JOB (
             job_name => 'UPDATE_RESOURCES',
             job_type => 'STORED_PROCEDURE',
@@ -9,7 +8,7 @@ BEGIN
             start_date => SYSDATE,
             repeat_interval => 'FREQ=SECONDLY;INTERVAL=1',
             end_date => NULL,
-            enabled => TRUE,
+            enabled => FALSE,
             auto_drop => FALSE,
             comments => 'Job to update resources values of villages from active game'
     );    

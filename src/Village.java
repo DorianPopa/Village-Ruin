@@ -39,7 +39,9 @@ public class Village extends JButton {
         updateToolTipText();
 
         this.addActionListener(e -> {
-            JOptionPane.showMessageDialog(null, this.position_x + " " + this.position_y + " res: " + this.resources + "ID: " + this.idAccount);
+            //JOptionPane.showMessageDialog(null, this.position_x + " " + this.position_y + " res: " + this.resources + "ID: " + this.idAccount);
+            MapPage.selectedVillage = this;
+            MapPage.sidePanel.setVillage(this);
         });
     }
 
@@ -74,6 +76,7 @@ public class Village extends JButton {
     public void setHealth(int health) {
         this.health = health;
         updateToolTipText();
+        updateSidePanel();
     }
 
     public String getVillageName() {
@@ -83,6 +86,7 @@ public class Village extends JButton {
     public void setVillageName(String villageName) {
         this.villageName = villageName;
         updateToolTipText();
+        updateSidePanel();
     }
 
     public int getResources() {
@@ -92,6 +96,7 @@ public class Village extends JButton {
     public void setResources(int resources) {
         this.resources = resources;
         updateToolTipText();
+        updateSidePanel();
     }
 
     public int getVillagelevel() {
@@ -101,6 +106,7 @@ public class Village extends JButton {
     public void setVillagelevel(int villagelevel) {
         this.villagelevel = villagelevel;
         updateToolTipText();
+        updateSidePanel();
     }
 
     public int getTroopNumber() {
@@ -110,6 +116,7 @@ public class Village extends JButton {
     public void setTroopNumber(int troopNumber) {
         this.troopNumber = troopNumber;
         updateToolTipText();
+        updateSidePanel();
     }
 
     private void loadImages(){
@@ -128,5 +135,12 @@ public class Village extends JButton {
         toolTipText += "Troops: " + troopNumber + "<br>";
         toolTipText += "</html>";
         this.setToolTipText(toolTipText);
+    }
+
+    private void updateSidePanel(){
+        if(MapPage.selectedVillage != null)
+            if(id == MapPage.selectedVillage.getId()){
+                MapPage.sidePanel.setVillage(this);
+            }
     }
 }
