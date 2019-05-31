@@ -1,3 +1,6 @@
+DROP TABLE update_log;
+/
+
 DROP TABLE accounts CASCADE CONSTRAINTS;
 /
 
@@ -23,6 +26,13 @@ DROP TABLE troop_recruitments CASCADE CONSTRAINTS;
 /
 
 DROP TABLE games CASCADE CONSTRAINTS;
+/
+
+CREATE TABLE update_log(
+    log_id INTEGER PRIMARY KEY NOT NULL,
+    log_message VARCHAR2(100),
+    log_timeStamp DATE
+);
 /
 
 CREATE TABLE accounts (

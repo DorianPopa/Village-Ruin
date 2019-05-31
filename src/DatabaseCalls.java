@@ -135,8 +135,6 @@ public class DatabaseCalls {
 
 
 
-
-
 //    public List<String> getDateAng(Connection con, int id_ang) throws SQLException {
 //        try {
 //            con = Database.getConnection();

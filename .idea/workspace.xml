@@ -7,24 +7,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ad974eeb-ae17-4c0b-afe2-3233fd859298" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/SessionData.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dbnavigator.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Village-Ruin/DatabaseCalls.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Village-Ruin/DatabaseCalls.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Village-Ruin/LoginPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Village-Ruin/LoginPage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Village-Ruin/META-INF/Village-Ruin.kotlin_module" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Village-Ruin/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Village-Ruin/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Village-Ruin/MapPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Village-Ruin/MapPage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Village-Ruin/UniverseUpdater$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Village-Ruin/UniverseUpdater$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Village-Ruin/Village.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Village-Ruin/Village.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sqlPackages/GameFunctions.sql" beforeDir="false" afterPath="$PROJECT_DIR$/sqlPackages/GameFunctions.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sqlPackages/scriptPopulare.sql" beforeDir="false" afterPath="$PROJECT_DIR$/sqlPackages/scriptPopulare.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DatabaseCalls.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DatabaseCalls.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LoginPage.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/LoginPage.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LoginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LoginPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MapPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MapPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UniverseUpdater.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UniverseUpdater.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Village.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Village.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -41,8 +28,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="17" lean-forward="true" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+            <state relative-caret-position="68">
+              <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -53,8 +40,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/LoginPage.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="24" lean-forward="true" selection-start-line="6" selection-start-column="24" selection-end-line="6" selection-end-column="24" />
+            <state relative-caret-position="34">
+              <caret line="6" column="24" selection-start-line="6" selection-start-column="24" selection-end-line="6" selection-end-column="24" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -65,17 +52,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Village.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="67">
-              <caret line="107" column="5" lean-forward="true" selection-start-line="107" selection-start-column="5" selection-end-line="107" selection-end-column="5" />
+            <state relative-caret-position="560">
+              <caret line="107" column="5" selection-start-line="107" selection-start-column="5" selection-end-line="107" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1079#1080#0" expanded="true" />
-                <element signature="e#1107#1108#0" expanded="true" />
+                <element signature="e#1921#1922#0" expanded="true" />
                 <element signature="e#1950#1951#0" expanded="true" />
-                <element signature="e#2003#2004#0" expanded="true" />
-                <element signature="e#2037#2038#0" expanded="true" />
+                <element signature="e#2290#2291#0" expanded="true" />
                 <element signature="e#2322#2323#0" expanded="true" />
+                <element signature="e#2476#2477#0" expanded="true" />
                 <element signature="e#2511#2512#0" expanded="true" />
+                <element signature="e#2676#2677#0" expanded="true" />
                 <element signature="e#2710#2711#0" expanded="true" />
               </folding>
             </state>
@@ -86,7 +73,7 @@
         <entry file="file://$PROJECT_DIR$/src/PasswordEncryption.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="119">
-              <caret line="7" column="26" lean-forward="true" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
+              <caret line="7" column="26" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -97,8 +84,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/MapPage.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="89" column="9" lean-forward="true" selection-start-line="89" selection-start-column="9" selection-end-line="89" selection-end-column="9" />
+            <state relative-caret-position="560">
+              <caret line="89" column="9" selection-start-line="89" selection-start-column="9" selection-end-line="89" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#createBlank#0;class#MapPage#0" />
@@ -110,23 +97,10 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/UniverseUpdater.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="23" column="85" lean-forward="true" selection-start-line="23" selection-start-column="85" selection-end-line="23" selection-end-column="85" />
+            <state relative-caret-position="425">
+              <caret line="27" column="87" lean-forward="true" selection-start-line="27" selection-start-column="87" selection-end-line="27" selection-end-column="87" />
               <folding>
                 <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/DatabaseCalls.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="120" column="40" lean-forward="true" selection-start-line="120" selection-start-column="40" selection-end-line="120" selection-end-column="40" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#testConnection#0;class#DatabaseCalls#0" />
               </folding>
             </state>
           </provider>
@@ -162,11 +136,11 @@
         <option value="$PROJECT_DIR$/src/Database.java" />
         <option value="$PROJECT_DIR$/src/SessionData.java" />
         <option value="$PROJECT_DIR$/src/LoginPage.java" />
-        <option value="$PROJECT_DIR$/src/DatabaseCalls.java" />
         <option value="$PROJECT_DIR$/src/Main.java" />
         <option value="$PROJECT_DIR$/src/UniverseUpdater.java" />
         <option value="$PROJECT_DIR$/src/MapPage.java" />
         <option value="$PROJECT_DIR$/src/Village.java" />
+        <option value="$PROJECT_DIR$/src/DatabaseCalls.java" />
       </list>
     </option>
   </component>
@@ -200,18 +174,13 @@
             </path>
             <path>
               <item name="Village-Ruin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Village-Ruin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="LoginPage" type="e9f4de52:FormNode" />
-            </path>
-            <path>
-              <item name="Village-Ruin" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="PackagesPane">
         <subPane>
           <expand>
@@ -223,7 +192,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -282,13 +250,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Image Layers" order="0" />
       <window_info id="Designer" order="1" />
       <window_info id="UI Designer" order="2" />
       <window_info id="Capture Tool" order="3" />
       <window_info id="Favorites" order="4" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="5" visible="true" weight="0.15260416" />
+      <window_info active="true" content_ui="combo" id="Project" order="5" visible="true" weight="0.15260416" />
       <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="DB Execution Console" order="0" />
       <window_info anchor="bottom" id="Messages" order="1" weight="0.32985386" />
@@ -297,7 +266,7 @@
       <window_info anchor="bottom" id="Terminal" order="4" />
       <window_info anchor="bottom" id="Message" order="5" />
       <window_info anchor="bottom" id="Find" order="6" />
-      <window_info anchor="bottom" id="Run" order="7" sideWeight="0.49947917" weight="0.32985386" />
+      <window_info anchor="bottom" id="Run" order="7" sideWeight="0.49947917" visible="true" weight="0.32985386" />
       <window_info anchor="bottom" id="Debug" order="8" weight="0.39979124" />
       <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="10" weight="0.4" />
@@ -395,11 +364,11 @@
       <provider selected="true" editor-type-id="ui-designer" />
     </entry>
     <entry file="db://05348850-bacc-451a-be6d-84efa86f35d4/objects/schemas/STUDENT/packages/LOGINREGISTERFUNCTIONS">
-      <provider selected="true" editor-type-id="1.CODE_BODY">
-        <state line="19" column="111" selection-start="711" selection-end="711" vertical-scroll-proportion="0.5992579" />
-      </provider>
       <provider editor-type-id="0.CODE_SPEC">
         <state line="7" column="0" selection-start="394" selection-end="394" vertical-scroll-proportion="0.0" />
+      </provider>
+      <provider selected="true" editor-type-id="1.CODE_BODY">
+        <state line="19" column="111" selection-start="711" selection-end="711" vertical-scroll-proportion="0.5992579" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/village.png">
@@ -408,11 +377,11 @@
     <entry file="file://$PROJECT_DIR$/sqlPackages/desktop.ini" />
     <entry file="file://$PROJECT_DIR$/sqlPackages/script_populare_tabele.sql" />
     <entry file="db://05348850-bacc-451a-be6d-84efa86f35d4/objects/schemas/STUDENT/packages/GAMEFUNCTIONS">
-      <provider selected="true" editor-type-id="1.CODE_BODY">
-        <state line="14" column="47" selection-start="602" selection-end="602" vertical-scroll-proportion="0.44155845" />
-      </provider>
       <provider editor-type-id="0.CODE_SPEC">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" />
+      </provider>
+      <provider selected="true" editor-type-id="1.CODE_BODY">
+        <state line="14" column="47" selection-start="602" selection-end="602" vertical-scroll-proportion="0.44155845" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/sqlPackages/LoginRegister.sql">
@@ -454,16 +423,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Database.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="46" lean-forward="true" selection-start-line="11" selection-start-column="46" selection-end-line="11" selection-end-column="46" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/MapPage.form">
       <provider selected="true" editor-type-id="ui-designer" />
     </entry>
@@ -477,40 +436,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/LoginPage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="24" lean-forward="true" selection-start-line="6" selection-start-column="24" selection-end-line="6" selection-end-column="24" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="17" lean-forward="true" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+        <state relative-caret-position="68">
+          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Village.java">
+    <entry file="file://$PROJECT_DIR$/src/LoginPage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="67">
-          <caret line="107" column="5" lean-forward="true" selection-start-line="107" selection-start-column="5" selection-end-line="107" selection-end-column="5" />
+        <state relative-caret-position="34">
+          <caret line="6" column="24" selection-start-line="6" selection-start-column="24" selection-end-line="6" selection-end-column="24" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1079#1080#0" expanded="true" />
-            <element signature="e#1107#1108#0" expanded="true" />
-            <element signature="e#1950#1951#0" expanded="true" />
-            <element signature="e#2003#2004#0" expanded="true" />
-            <element signature="e#2037#2038#0" expanded="true" />
-            <element signature="e#2322#2323#0" expanded="true" />
-            <element signature="e#2511#2512#0" expanded="true" />
-            <element signature="e#2710#2711#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -518,28 +459,27 @@
     <entry file="file://$PROJECT_DIR$/src/PasswordEncryption.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
-          <caret line="7" column="26" lean-forward="true" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
+          <caret line="7" column="26" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/MapPage.java">
+    <entry file="file://$PROJECT_DIR$/src/Database.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="89" column="9" lean-forward="true" selection-start-line="89" selection-start-column="9" selection-end-line="89" selection-end-column="9" />
+        <state relative-caret-position="255">
+          <caret line="15" column="26" lean-forward="true" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="26" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#createBlank#0;class#MapPage#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/DatabaseCalls.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="120" column="40" lean-forward="true" selection-start-line="120" selection-start-column="40" selection-end-line="120" selection-end-column="40" />
+        <state relative-caret-position="249">
+          <caret line="25" column="40" lean-forward="true" selection-start-line="25" selection-start-column="40" selection-end-line="25" selection-end-column="40" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#testConnection#0;class#DatabaseCalls#0" />
@@ -547,10 +487,39 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/MapPage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="560">
+          <caret line="89" column="9" selection-start-line="89" selection-start-column="9" selection-end-line="89" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#createBlank#0;class#MapPage#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Village.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="560">
+          <caret line="107" column="5" selection-start-line="107" selection-start-column="5" selection-end-line="107" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1921#1922#0" expanded="true" />
+            <element signature="e#1950#1951#0" expanded="true" />
+            <element signature="e#2290#2291#0" expanded="true" />
+            <element signature="e#2322#2323#0" expanded="true" />
+            <element signature="e#2476#2477#0" expanded="true" />
+            <element signature="e#2511#2512#0" expanded="true" />
+            <element signature="e#2676#2677#0" expanded="true" />
+            <element signature="e#2710#2711#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/UniverseUpdater.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="23" column="85" lean-forward="true" selection-start-line="23" selection-start-column="85" selection-end-line="23" selection-end-column="85" />
+        <state relative-caret-position="425">
+          <caret line="27" column="87" lean-forward="true" selection-start-line="27" selection-start-column="87" selection-end-line="27" selection-end-column="87" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
