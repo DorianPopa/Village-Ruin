@@ -18,6 +18,7 @@ CREATE TABLE attacks (
     position_y INT NOT NULL,
     time_stamp DATE
 );
+/
 
 CREATE TABLE accounts (
     id INT NOT NULL PRIMARY KEY,
@@ -54,6 +55,23 @@ CREATE TABLE villages (
     CONSTRAINT fk_villages_id_game FOREIGN KEY (id_game) REFERENCES games(id)
 );
 /
+
+CREATE SEQUENCE attacksId_seq
+    MINVALUE 1
+    MAXVALUE 10000000
+    START WITH 1
+    INCREMENT BY 1
+    CACHE 30;
+/
+
+CREATE INDEX attacks_index ON attacks (id_game);
+/
+
+CREATE INDEX villages_index ON villages (id_game, id_account);
+/
+
+
+
 
 SET SERVEROUTPUT ON;
 DECLARE
@@ -104,10 +122,11 @@ BEGIN
 
 BEGIN
     FOR v_i IN 1..100 LOOP
-        FOR v_j IN 1..5000 LOOP
-            INSERT INTO attacks VALUES ((SELECT max(id)+1 FROM attacks), DBMS_RANDOM.VALUE(1, 8), v_i, DBMS_RANDOM.VALUE(0, 20), DBMS_RANDOM.VALUE(0, 20), SYSDATE);
+        FOR v_j IN 1..10000 LOOP
+            INSERT INTO attacks VALUES (ATTACKSID_SEQ.nextval, DBMS_RANDOM.VALUE(1, 8), v_i, DBMS_RANDOM.VALUE(0, 20), DBMS_RANDOM.VALUE(0, 20), SYSDATE);
         END LOOP;
     END LOOP;
 END;
+SELECT count(*) FROM attacks where id_game = 69;
 END;
 /

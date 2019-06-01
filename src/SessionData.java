@@ -2,6 +2,7 @@ import java.awt.Color;
 
 public class SessionData {
     public static int accountId;
+    public static int gameId;
 
     public static Color GLOBAL_FONT_COLOR = Color.WHITE;
 

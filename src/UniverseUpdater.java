@@ -52,6 +52,6 @@ public class UniverseUpdater {
             }
         };
         Timer timer = new Timer("Updater");//create a new Timer
-        timer.scheduleAtFixedRate(timerTask, 30, 1000);//this line starts the timer at the same time its executed
+        timer.scheduleAtFixedRate(timerTask, 30, 500);//this line starts the timer at the same time its executed
     }
 }

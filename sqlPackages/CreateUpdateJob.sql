@@ -27,7 +27,7 @@ BEGIN
             job_type => 'STORED_PROCEDURE',
             job_action => 'STUDENT.AIFunctions.manageAI',
             start_date => SYSDATE,
-            repeat_interval => 'FREQ=SECONDLY;INTERVAL=5',
+            repeat_interval => 'FREQ=SECONDLY;INTERVAL=1',
             end_date => NULL,
             enabled => FALSE,
             auto_drop => FALSE,
