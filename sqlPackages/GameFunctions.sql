@@ -8,6 +8,7 @@ CREATE OR REPLACE PACKAGE gameFunctions IS
     PROCEDURE recruitTroopAtVillageById(p_villageId villages.id%TYPE);
     PROCEDURE increaseVillageLevelById(p_villageId villages.id%TYPE);
     PROCEDURE attackVillage(p_originVillage villages.id%TYPE, p_targetVillage villages.id%TYPE);
+    
 END gameFunctions;
 /
 
@@ -43,7 +44,7 @@ CREATE OR REPLACE PACKAGE BODY gameFunctions IS
         UPDATE villages SET resources = LEAST(resources + village_level, 2000) WHERE id_game = (SELECT max(id) FROM games);
         
         
-        INSERT INTO update_log VALUES ((SELECT max(log_id) FROM update_log) + 1, 'Resources updated', SYSDATE);
+        --INSERT INTO update_log VALUES ((SELECT max(log_id) FROM update_log) + 1, 'Resources updated', SYSDATE);
     END updateResources;
     
     

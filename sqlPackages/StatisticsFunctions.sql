@@ -9,7 +9,6 @@ CREATE OR REPLACE PACKAGE BODY statisticsFunctions IS
     BEGIN
         OPEN returnCursor FOR
             SELECT * FROM attacks WHERE id_game = p_gameId;
-        RETURN returnCursor;
     END getAttacksByGameId;
 
 END statisticsFunctions;

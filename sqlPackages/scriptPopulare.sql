@@ -104,7 +104,7 @@ BEGIN
 
 BEGIN
     FOR v_i IN 1..100 LOOP
-        FOR v_j IN 1..50000 LOOP
+        FOR v_j IN 1..5000 LOOP
             INSERT INTO attacks VALUES ((SELECT max(id)+1 FROM attacks), DBMS_RANDOM.VALUE(1, 8), v_i, DBMS_RANDOM.VALUE(0, 20), DBMS_RANDOM.VALUE(0, 20), SYSDATE);
         END LOOP;
     END LOOP;

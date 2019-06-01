@@ -9,7 +9,9 @@ END AIFunctions;
 CREATE OR REPLACE PACKAGE BODY AIFunctions IS
     PROCEDURE manageAI AS
         CURSOR villages_cursor IS 
-            SELECT village_level, id, position_x, position_y, troop_number FROM villages where id_game = (select max(id) from games) AND id_account = 1; 
+        SELECT village_level, id, position_x, position_y, troop_number FROM(
+            SELECT village_level, id, position_x, position_y, troop_number FROM villages where id_game = (select max(id) from games) AND id_account = 1 ORDER BY resources)
+        WHERE ROWNUM < 11;
         v_village_row villages_cursor%ROWTYPE;
     BEGIN
         FOR v_village_row IN villages_cursor LOOP
