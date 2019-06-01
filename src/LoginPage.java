@@ -1,7 +1,5 @@
 import javax.imageio.ImageIO;
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -28,6 +26,7 @@ public class LoginPage {
             if (passwordField.getText() != null && usernameField.getText() != null) {
                 if (DatabaseCalls.accountDoesExist(usernameField.getText(), PasswordEncryption.hashPassword(passwordField.getText(), "SALTY").get())) {
                     SessionData.accountId = DatabaseCalls.getAccountIdByName(usernameField.getText());
+                    SessionData.gameId = DatabaseCalls.getCurrentRunningGameId(SessionData.accountId);
                     JOptionPane.showMessageDialog(null, new JLabel("Successfully logged in"));
                     frame.setContentPane(new MapPage(frame).MainPanel);
                     frame.pack();

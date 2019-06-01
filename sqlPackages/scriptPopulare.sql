@@ -30,7 +30,7 @@ CREATE TABLE accounts (
 /
 
 CREATE TABLE games (
-    id INT NOT NULL PRIMARY KEY,
+    id INT NOT NULL,
     id_account INT NOT NULL,
     CONSTRAINT fk_games_id_account FOREIGN KEY (id_account) REFERENCES accounts(id)
 );

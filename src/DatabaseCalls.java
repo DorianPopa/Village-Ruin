@@ -226,6 +226,26 @@ public class DatabaseCalls {
             return null;
         }
     }
+
+    public static int getCurrentRunningGameId(int accountId){
+        try{
+            Connection con = Database.getConnection();
+            CallableStatement callableStatement = con.prepareCall("BEGIN ?:= gameFunctions.getCurrentRunningGameId( ?); END;");
+
+            callableStatement.registerOutParameter(1, java.sql.Types.INTEGER);
+            callableStatement.setInt(2, accountId);
+            callableStatement.execute();
+
+            int result = callableStatement.getInt(1);
+            callableStatement.close();
+            return result;
+        }
+        catch (SQLException e){
+            System.out.println(e.getErrorCode());
+            e.printStackTrace();
+            return 0;
+        }
+    }
 }
 
 

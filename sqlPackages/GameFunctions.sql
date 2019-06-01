@@ -8,6 +8,7 @@ CREATE OR REPLACE PACKAGE gameFunctions IS
     PROCEDURE recruitTroopAtVillageById(p_villageId villages.id%TYPE);
     PROCEDURE increaseVillageLevelById(p_villageId villages.id%TYPE);
     PROCEDURE attackVillage(p_originVillage villages.id%TYPE, p_targetVillage villages.id%TYPE);
+    FUNCTION  getCurrentRunningGameId(p_accountId accounts.id%TYPE) RETURN INTEGER;
     
 END gameFunctions;
 /
@@ -70,6 +71,23 @@ CREATE OR REPLACE PACKAGE BODY gameFunctions IS
         SELECT id INTO returnId FROM accounts WHERE account_name = p_accountName;
         RETURN returnId;
     END;
+    
+    
+    FUNCTION  getCurrentRunningGameId(p_accountId accounts.id%TYPE) RETURN INTEGER IS
+        returnId INTEGER;
+        randomVillageId INTEGER;
+    BEGIN
+        SELECT MAX(id) INTO returnId FROM games;        
+        SELECT id INTO randomVillageId FROM games WHERE id_account = p_accountId AND id = returnId;
+        
+        RETURN returnId;
+        EXCEPTION WHEN NO_DATA_FOUND THEN 
+            SELECT min(id) INTO randomVillageId FROM villages WHERE id_game = returnId AND id_account = 0;
+            UPDATE villages SET id_account = p_accountId WHERE id = randomVillageId;
+            INSERT INTO games VALUES (returnId, p_accountId);
+        RETURN returnId;
+    END;
+    
     
     PROCEDURE recruitTroopAtVillageById(p_villageId villages.id%TYPE) AS
         targetVillage villages%ROWTYPE;
