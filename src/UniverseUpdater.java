@@ -1,3 +1,5 @@
+import javax.swing.*;
+import java.sql.CallableStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -11,10 +13,14 @@ public class UniverseUpdater {
             @Override
             public void run() {
                 int i = 0;
-                ResultSet rs = DatabaseCalls.getAllVillages(1);
+                ResultsetCallablestatement chestie = DatabaseCalls.getAllVillages(1);
+                ResultSet rs = chestie.rs;
+                CallableStatement cs = chestie.cs;
+
                 while(true){
                     //System.out.println(i);
                     try {
+                        if(rs == null) { JOptionPane.showMessageDialog(null, new JLabel("Kicked for too many actions. The game will close.")); break; }
                         if (!rs.next()) break;
                         Village v = new Village(rs);
                         if(villageList.get(i).getHealth() != v.getHealth())
@@ -31,13 +37,21 @@ public class UniverseUpdater {
                             villageList.get(i).setTroopNumber(v.getTroopNumber());
                         i++;
                     } catch (SQLException e) {
+                        System.out.println(e.getErrorCode());
                         e.printStackTrace();
                     }
-
+                }
+                try {
+                    if(rs != null)
+                        rs.close();
+                    if(cs != null)
+                        cs.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
                 }
             }
         };
         Timer timer = new Timer("Updater");//create a new Timer
-        timer.scheduleAtFixedRate(timerTask, 30, 2000);//this line starts the timer at the same time its executed
+        timer.scheduleAtFixedRate(timerTask, 30, 1000);//this line starts the timer at the same time its executed
     }
 }

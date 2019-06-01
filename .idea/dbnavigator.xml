@@ -25,7 +25,7 @@
     <show-object-properties value="false" />
     <loaded-nodes>
       <connection connection-id="05348850-bacc-451a-be6d-84efa86f35d4">
-        <schema name="STUDENT" object-types="package, synonym" />
+        <schema name="STUDENT" object-types="synonym, package" />
       </connection>
     </loaded-nodes>
   </component>

@@ -1,39 +1,23 @@
-DROP TABLE update_log;
-/
-
 DROP TABLE accounts CASCADE CONSTRAINTS;
 /
 
 DROP TABLE villages CASCADE CONSTRAINTS;
 /
 
-DROP TABLE empire CASCADE CONSTRAINTS;
-/
-
-DROP TABLE troop_stats CASCADE CONSTRAINTS;
-/
-
-DROP TABLE building_stats CASCADE CONSTRAINTS;
-/
-
-DROP TABLE building_upgrades CASCADE CONSTRAINTS;
-/
-
-DROP TABLE troop_movements CASCADE CONSTRAINTS;
-/
-
-DROP TABLE troop_recruitments CASCADE CONSTRAINTS;
-/
-
 DROP TABLE games CASCADE CONSTRAINTS;
 /
 
-CREATE TABLE update_log(
-    log_id INTEGER PRIMARY KEY NOT NULL,
-    log_message VARCHAR2(100),
-    log_timeStamp DATE
-);
+DROP TABLE attacks CASCADE CONSTRAINTS;
 /
+
+CREATE TABLE attacks (
+    id int NOT NULL PRIMARY KEY,
+    id_account INT NOT NULL,
+    id_game INT NOT NULL,
+    position_x INT NOT NULL,
+    position_y INT NOT NULL,
+    time_stamp DATE
+);
 
 CREATE TABLE accounts (
     id INT NOT NULL PRIMARY KEY,
@@ -118,5 +102,12 @@ BEGIN
         END;
     END LOOP;
 
+BEGIN
+    FOR v_i IN 1..100 LOOP
+        FOR v_j IN 1..50000 LOOP
+            INSERT INTO attacks VALUES ((SELECT max(id)+1 FROM attacks), DBMS_RANDOM.VALUE(1, 8), v_i, DBMS_RANDOM.VALUE(0, 20), DBMS_RANDOM.VALUE(0, 20), SYSDATE);
+        END LOOP;
+    END LOOP;
+END;
 END;
 /

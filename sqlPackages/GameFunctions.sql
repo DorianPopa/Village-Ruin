@@ -1,4 +1,5 @@
-create or replace PACKAGE gameFunctions IS
+CREATE OR REPLACE PACKAGE gameFunctions IS
+    PROCEDURE closeCursor(cursorToBeClosed IN SYS_REFCURSOR);
     PROCEDURE updateResources;
 
     PROCEDURE getVillagesByAccountIdCursor(p_accountId IN villages.id_account%TYPE, returnCursor OUT SYS_REFCURSOR);
@@ -6,10 +7,16 @@ create or replace PACKAGE gameFunctions IS
     FUNCTION  getAccountIdByName(p_accountName accounts.account_name%TYPE) RETURN INTEGER;
     PROCEDURE recruitTroopAtVillageById(p_villageId villages.id%TYPE);
     PROCEDURE increaseVillageLevelById(p_villageId villages.id%TYPE);
+    PROCEDURE attackVillage(p_originVillage villages.id%TYPE, p_targetVillage villages.id%TYPE);
 END gameFunctions;
 /
 
 CREATE OR REPLACE PACKAGE BODY gameFunctions IS
+
+    PROCEDURE closeCursor(cursorToBeClosed IN SYS_REFCURSOR) AS
+    BEGIN
+        CLOSE cursorToBeClosed;
+    END closeCursor;
 
     /* Procedure to be called by SCHEDULED JOB to update the resources for the latest active game*/
     PROCEDURE updateResources IS
@@ -54,7 +61,7 @@ CREATE OR REPLACE PACKAGE BODY gameFunctions IS
         OPEN returnCursor FOR
             SELECT * FROM villages WHERE id_game = p_gameId ORDER BY position_x, position_y;
     END getAllVillages;
-
+        
     /**/
     FUNCTION  getAccountIdByName(p_accountName accounts.account_name%TYPE) RETURN INTEGER IS
         returnId INTEGER;
@@ -86,6 +93,50 @@ CREATE OR REPLACE PACKAGE BODY gameFunctions IS
         END IF;
         
     END increaseVillageLevelById;
+    
+    PROCEDURE attackVillage(p_originVillage villages.id%TYPE, p_targetVillage villages.id%TYPE) AS
+        ATTACK_RANGE INTEGER := 2;
+        v_originTroops INTEGER;
+        v_targetTroops INTEGER;
+        v_originAccountId INTEGER;
+        v_targetAccountId INTEGER;
+        v_targetHealth INTEGER;
+        v_totalAttackPower INTEGER;
+        v_totalDefensivePower INTEGER;
+        v_originX INTEGER;
+        v_originY INTEGER;
+        v_targetX INTEGER;
+        v_targetY INTEGER;
+        
+        v_minX INTEGER;
+        v_minY INTEGER;
+        v_maxX INTEGER;
+        v_maxY INTEGER;
+    BEGIN
+        SELECT troop_number, id_account, position_x, position_y INTO v_originTroops, v_originAccountId, v_originX, v_originY FROM villages WHERE id = p_originVillage;
+        SELECT troop_number, id_account, health, position_x, position_y INTO v_targetTroops, v_targetAccountId, v_targetHealth, v_targetX, v_targetY FROM villages WHERE id = p_targetVillage;
+        
+        v_minX := GREATEST(0, v_originX - ATTACK_RANGE);
+        v_maxX := LEAST(20, v_originX + ATTACK_RANGE);
+        v_minY := GREATEST(0, v_originY - ATTACK_RANGE);
+        v_maxY := LEAST(20, v_originY + ATTACK_RANGE);
+        
+        IF(v_originAccountId != v_targetAccountId) THEN
+            IF(v_minX <= v_targetX AND v_targetX <= v_maxX AND v_minY <= v_targetY AND v_targetY <= v_maxY) THEN
+                v_totalAttackPower := GREATEST(0, v_originTroops - v_targetTroops);
+                v_totalDefensivePower := GREATEST(0, v_targetTroops - v_originTroops);
+                
+                IF(v_targetHealth - v_totalAttackPower <= 0) THEN
+                    v_targetHealth := 1;
+                    UPDATE villages SET id_account = v_originAccountId, troop_number = v_totalDefensivePower, health = v_targetHealth WHERE id = p_targetVillage;
+                ELSE
+                    v_targetHealth := v_targetHealth - v_totalAttackPower;
+                    UPDATE villages SET troop_number = v_totalAttackPower WHERE id = p_originVillage;
+                    UPDATE villages SET troop_number = v_totalDefensivePower, health = v_targetHealth WHERE id = p_targetVillage;
+                END IF;
+            END IF;
+        END IF;
+    END attackVillage;
     
 END gameFunctions;
 

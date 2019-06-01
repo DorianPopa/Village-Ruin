@@ -40,8 +40,15 @@ public class Village extends JButton {
 
         this.addActionListener(e -> {
             //JOptionPane.showMessageDialog(null, this.position_x + " " + this.position_y + " res: " + this.resources + "ID: " + this.idAccount);
-            MapPage.selectedVillage = this;
-            MapPage.sidePanel.setVillage(this);
+            if(MapPage.isAttacking && (this.getIdAccount() != MapPage.selectedVillage.getIdAccount())){
+                DatabaseCalls.attackVillage(MapPage.selectedVillage.getId(), this.getId());
+                MapPage.isAttacking = false;
+            }
+            else{
+                MapPage.selectedVillage = this;
+                MapPage.sidePanel.setVillage(this);
+            }
+
         });
     }
 
@@ -60,9 +67,11 @@ public class Village extends JButton {
     public void setIdAccount(int idAccount) {
         this.idAccount = idAccount;
         if(idAccount == SessionData.accountId)
-            this.setBackground(Color.BLUE);
+            this.setBackground(SessionData.ALLY_COLOR);
+        else if (idAccount == 1)
+            this.setBackground(Color.YELLOW);
         else
-            this.setBackground(Color.MAGENTA);
+            this.setBackground(SessionData.ENEMY_COLOR);
 
         if(this.idAccount != 0){
             this.setIcon(new ImageIcon(villageWithOwner));

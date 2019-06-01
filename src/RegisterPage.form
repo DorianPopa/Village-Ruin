@@ -24,20 +24,20 @@
         </constraints>
         <properties/>
       </component>
-      <component id="d0f5e" class="javax.swing.JLabel">
+      <component id="d0f5e" class="javax.swing.JLabel" binding="usernameLabel">
         <constraints>
           <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Desired Username"/>
+          <text value=""/>
         </properties>
       </component>
-      <component id="188ed" class="javax.swing.JLabel">
+      <component id="188ed" class="javax.swing.JLabel" binding="passwordLabel">
         <constraints>
           <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Password"/>
+          <text value=""/>
         </properties>
       </component>
       <component id="5baed" class="javax.swing.JPasswordField" binding="retypePassword">
@@ -48,12 +48,12 @@
         </constraints>
         <properties/>
       </component>
-      <component id="5e5e6" class="javax.swing.JLabel">
+      <component id="5e5e6" class="javax.swing.JLabel" binding="retypePasswordLabel">
         <constraints>
           <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Retype Password"/>
+          <text value=""/>
         </properties>
       </component>
       <hspacer id="32139">

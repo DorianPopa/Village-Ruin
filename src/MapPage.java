@@ -13,7 +13,7 @@ public class MapPage {
     public JPanel MainPanel;
 
     private JPanel mapPanel = new JPanel();
-    private int mapSize = 25;
+    private int mapSize = 21;
 
     private ResultSet villagesCursor;
     private ArrayList villageList = new ArrayList<Village>();
@@ -27,12 +27,14 @@ public class MapPage {
     public static SidePanel sidePanel = new SidePanel();
 
     public static Village selectedVillage;
+    public static boolean isAttacking = false;
 
     public MapPage(JFrame frame){
-        villagesCursor = DatabaseCalls.getAllVillages(1);
+        villagesCursor = DatabaseCalls.getAllVillages(1).rs;
 
         BorderLayout mainLayout = new BorderLayout();
         MainPanel.setLayout(mainLayout);
+
         MainPanel.add(titleLabel, BorderLayout.NORTH);
 
         GridLayout mapLayout = new GridLayout(mapSize,mapSize);
@@ -110,9 +112,11 @@ public class MapPage {
             else{
                 village.setIcon(new ImageIcon(villageWithOwner));
                 if(village.getIdAccount() == SessionData.accountId)
-                    village.setBackground(Color.BLUE);
+                    village.setBackground(SessionData.ALLY_COLOR);
+                else if (village.getIdAccount() == 1)
+                    village.setBackground(Color.ORANGE);
                 else
-                    village.setBackground(Color.MAGENTA);
+                    village.setBackground(SessionData.ENEMY_COLOR);
             }
 
             villageList.add(village);

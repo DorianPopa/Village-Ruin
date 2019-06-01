@@ -4,6 +4,7 @@ import java.sql.*;
 
 
 public class DatabaseCalls {
+
     public static void testConnection() throws SQLException {
         Connection con = Database.getConnection();
         Statement st = con.createStatement();
@@ -26,11 +27,17 @@ public class DatabaseCalls {
             callableStatement.execute();
 
             int rs = callableStatement.getInt(1);
-            if(rs == 0)
+
+            if(rs == 0){
+                callableStatement.close();
                 return false;
+            }
+
+
         }
         catch (SQLException e){
-            System.out.println("SQL Exception");
+            System.out.println(e.getErrorCode());
+            e.printStackTrace();
         }
         return true;
     }
@@ -43,9 +50,11 @@ public class DatabaseCalls {
             callableStatement.setString(1, username);
             callableStatement.setString(2, password);
             callableStatement.execute();
+            callableStatement.close();
         }
         catch (SQLException e){
-            System.out.println("SQL Exception");
+            System.out.println(e.getErrorCode());
+            e.printStackTrace();
         }
     }
 
@@ -60,11 +69,15 @@ public class DatabaseCalls {
             callableStatement.execute();
 
             int rs = callableStatement.getInt(1);
-            if(rs == 0)
+            if(rs == 0){
+                callableStatement.close();
                 return false;
+            }
+
         }
         catch (SQLException e){
-            System.out.println("SQL Exception");
+            System.out.println(e.getErrorCode());
+            e.printStackTrace();
         }
         return true;
     }
@@ -84,11 +97,12 @@ public class DatabaseCalls {
             }
         }
         catch (SQLException e){
-            System.out.println("SQL Exception");
+            System.out.println(e.getErrorCode());
+            e.printStackTrace();
         }
     }
 
-    public static ResultSet getAllVillages(int gameId){
+    public static ResultsetCallablestatement getAllVillages(int gameId){
         try{
             Connection con = Database.getConnection();
             CallableStatement callableStatement = con.prepareCall("BEGIN gameFunctions.getAllVillages( ?, ?); END;");
@@ -103,10 +117,11 @@ public class DatabaseCalls {
                     System.out.println(rs.getInt("position_x") + " " + rs.getInt("position_y"));
                 }
             */
-            return rs;
+            return new ResultsetCallablestatement(rs, callableStatement);
         }
         catch (SQLException e){
-            System.out.println("SQL Exception");
+            System.out.println(e.getErrorCode());
+            e.printStackTrace();
             return null;
         }
     }
@@ -121,11 +136,12 @@ public class DatabaseCalls {
             callableStatement.execute();
 
             int result = callableStatement.getInt(1);
-
+            callableStatement.close();
             return result;
         }
         catch (SQLException e){
-            System.out.println("SQL Exception");
+            System.out.println(e.getErrorCode());
+            e.printStackTrace();
             return 0;
         }
     }
@@ -137,9 +153,11 @@ public class DatabaseCalls {
 
             callableStatement.setInt(1, villageId);
             callableStatement.execute();
+            callableStatement.close();
         }
         catch (SQLException e){
-            System.out.println("SQL Exception");
+            System.out.println(e.getErrorCode());
+            e.printStackTrace();
         }
     }
 
@@ -150,9 +168,62 @@ public class DatabaseCalls {
 
             callableStatement.setInt(1, villageId);
             callableStatement.execute();
+            callableStatement.close();
         }
         catch (SQLException e){
-            System.out.println("SQL Exception");
+            System.out.println(e.getErrorCode());
+            e.printStackTrace();
+        }
+    }
+
+    public static void attackVillage(int originVillage, int targetVillage){
+        try{
+            Connection con = Database.getConnection();
+            CallableStatement callableStatement = con.prepareCall("BEGIN gameFunctions.attackVillage( ?, ?); END;");
+
+            callableStatement.setInt(1, originVillage);
+            callableStatement.setInt(2, targetVillage);
+            callableStatement.execute();
+            callableStatement.close();
+        }
+        catch (SQLException e){
+            System.out.println(e.getErrorCode());
+            e.printStackTrace();
+        }
+    }
+
+    public static void closeCursor(ResultSet cursor){
+        try{
+            Connection con = Database.getConnection();
+            CallableStatement callableStatement = con.prepareCall("BEGIN gameFunctions.closeCursor( ?); END;");
+
+            callableStatement.setObject(1, cursor);
+            callableStatement.execute();
+            callableStatement.close();
+        }
+        catch (SQLException e){
+            System.out.println(e.getErrorCode());
+            e.printStackTrace();
+        }
+    }
+
+    public static ResultsetCallablestatement getAttacksByGameId(int gameId){
+        try{
+            Connection con = Database.getConnection();
+            CallableStatement callableStatement = con.prepareCall("BEGIN statisticsFunctions.getAttacksByGameId( ?, ?); END;");
+
+            callableStatement.registerOutParameter(2, OracleTypes.CURSOR);
+            callableStatement.setInt(1, gameId);
+            callableStatement.execute();
+
+            ResultSet rs = (ResultSet)callableStatement.getObject(2);
+
+            return new ResultsetCallablestatement(rs, callableStatement);
+        }
+        catch (SQLException e){
+            System.out.println(e.getErrorCode());
+            e.printStackTrace();
+            return null;
         }
     }
 }
