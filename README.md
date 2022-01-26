@@ -1,9 +1,8 @@
 # Village-Ruin
-Second semester database project.
 
 Tribal Wars inspired game. 
 
-All the game logic was implemented at the database level. The client was built in JAVA.
+All the game logic was implemented at the database level. The client app was built in JAVA.
 
 # Doc:
 https://docs.google.com/document/d/1JiEb5xQkN-QHB7qL-aLB1HpSyUKBskhidDx_E8dYl4E/edit?usp=sharing
